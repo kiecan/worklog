@@ -3,12 +3,17 @@ package main
 import (
 	"flag"
 	"fmt"
+	"time"
 )
 
 func main() {
 
-	var nFlag = flag.Int("lines", 1234, "number of lines")
+	weekday := time.Now().Weekday()
+	current_time := time.Now().Format(time.Kitchen)
+
+	var message = flag.String("message", " ", "Todo item")
 	flag.Parse()
 
-	fmt.Printf("Lines %d\n", *nFlag)
+	fmt.Println("Weekday: ", weekday)
+	fmt.Printf("%s @ %s\n", *message, current_time)
 }
